@@ -1,0 +1,48 @@
+modues in binary this might look like 99 this would tell the computer to import the 99th module
+int, float, complex
+string
+list, tuple
+dict
+set, frozenset
+bool
+bytes, bytarry, memoryview
+variable based on variable
+defenition
+class
+
+code could look like this :
+
+modules---------------------------------------------------------------
+tkinter
+time
+ints-------------------------------
+floats----------------------------------------
+animationduration = 99
+complex---------------
+strings----------------------------
+lists--------------
+tuples--------------------------
+dicts----------------------
+sets-------------------
+frozensets---------------------------------
+bools-------------------
+bytes-----------------------
+variables based on variaibles-------------------------------
+defenitions---------------------------------
+ChangeSettings (setting) :
+	pass
+classes--------------------
+code-------------------------------
+
+the ram could look like this (converted from 1s and 0s to numbers) th number at the start indicates the task this is either a 1 or 0 to tell the compiler to remember it or execute it the 2 numbers at the start indicate the function and the rest of the numbers indicate its parameters
+
+import tkinter
+import time
+what the compiler might see
+
+99
+ChangeSettings setting : 
+ 1#code this is special and means this is the code now when the compiler sees text it executes it as a function assuming the function parameters will follow import time would be running the import function with time parsed in as a variable
+import tkinter
+import time
+tk # the code can acces the window object now by running the get function followed by the line of code this is on in this case line 6
