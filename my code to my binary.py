@@ -5,7 +5,14 @@ while True :
     if letter == "n" :
       output += "0000000"
     elif number = 0 :
-      
+      if letter == "s" :#set
+        output += "1000000"
+      if letter == "o" :#output
+        output += "1000000"
+      if letter == "r" : #run
+        output += "1000000"
+      if letter == "R" :#run if
+        output += "1000000"
     else :
       if letter == "+" :
         output += "1000000"
