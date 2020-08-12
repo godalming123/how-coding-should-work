@@ -46,3 +46,5 @@ ChangeSettings setting :
 import tkinter
 import time
 tk # the code can acces the window object now by running the get function followed by the line of code this is on in this case line 6
+
+#example 3
