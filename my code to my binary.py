@@ -54,7 +54,7 @@ def MyCodeToMyMachine (code) :
       elif keyword == "RunIf" :
         output += "11001"
         state += "f"
-    elif letter == ";" :
+    if letter == ";" :
       output += "00000"
     elif letter == " " :
       keyword = ""
