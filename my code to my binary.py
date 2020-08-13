@@ -13,6 +13,7 @@ def MyCodeToMyMachine (code) :
     elif letter == "n" :#n means to create a new line witch is 00000 in my code
       output += "000000"
       keyword = ""
+      kewords = 0
     #elif state[1] == "f" :
     #    output += "{10000:b}".format(ord (letter))
     elif keywords != 0 :#if we have had keywords passed in
