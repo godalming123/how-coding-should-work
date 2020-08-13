@@ -5,18 +5,7 @@ def MyCodeToMyMachine (code) :
   state = [0]#this is the state say if we inside a function the state would be [f]
   for letter in list (code) :
     keyword += letter
-    if letter == ";" :
-      output += "00000"
-    elif letter == " " :
-      keyword = ""
-      keywords += 1#there has been a keyword passed in so we add one to the keywords var
-    elif letter == "n" :#n means to create a new line witch is 00000 in my code
-      output += "000000"
-      keyword = ""
-      keywords = 0
-    elif state[1] == "f" :
-        output += "{10000:b}".format(ord (letter))
-    elif keywords != 0 :#if we have had keywords passed in
+    if keywords != 0 :#if we have had keywords passed in
       if keyword == "+" :
         output += "10000"
         state += "f"
@@ -65,6 +54,17 @@ def MyCodeToMyMachine (code) :
       elif keyword == "RunIf" :
         output += "11001"
         state += "f"
+    elif letter == ";" :
+      output += "00000"
+    elif letter == " " :
+      keyword = ""
+      keywords += 1#there has been a keyword passed in so we add one to the keywords var
+    elif letter == "n" :#n means to create a new line witch is 00000 in my code
+      output += "000000"
+      keyword = ""
+      keywords = 0
+    elif state[0] == "f" :
+        output += "{10000:b}".format(ord (letter))
     else :
       if keyword == "set" :
         output += "100"
