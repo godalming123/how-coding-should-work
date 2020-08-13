@@ -1,50 +1,79 @@
-while True :
-  code = input ("code: ")
+def MyCodeToMyMachine (code) :
   output = ""
-  for letter, number in zip (list (code), [list (letter) for letter in list (code) if letter != "n"]) :
-    if letter == "n" :
-      output += "0000000"
-    elif number = 0 :
-      if letter == "s" :#set
-        output += "1000000"
-      if letter == "o" :#output
-        output += "1000000"
-      if letter == "r" : #run
-        output += "1000000"
-      if letter == "R" :#run if
-        output += "1000000"
+  keyword = ""
+  keywords = 0
+  state = [0]#this is the state say if we inside a function the state would be [f]
+  for letter in list (code) :
+    keyword += letter
+    if letter == ";" :
+      output += "00000"
+    elif letter == " " :
+      keyword = ""
+      keywords += 1#there has been a keyword passed in so we add one to the keywords var
+    elif letter == "n" :#n means to create a new line witch is 00000 in my code
+      output += "000000"
+      keyword = ""
+    #elif state[1] == "f" :
+    #    output += "{10000:b}".format(ord (letter))
+    elif keywords != 0 :#if we have had keywords passed in
+      if keyword == "+" :
+        output += "10000"
+        state += "f"
+      elif keyword == "-" :
+        output += "01000"
+        state += "f"
+      elif keyword == "*" :
+        output += "11000"
+        state += "f"
+      elif keyword == "/" :
+        output += "00100"
+        state += "f"
+      elif keyword == "^" :
+        output += "10100"
+        state += "f"
+      elif keyword == "SquareRoot" :
+        output += "01100"
+        state += "f"
+      elif keyword == "get" :
+        output += "11100"
+        state += "f"
+      elif keyword == "input" :
+        output += "00010"
+        state += "f"
+      elif keyword == "str" :
+        output += "10010"
+        state += "f"
+      elif keyword == "MultiLineStr" :
+        output += "01010"
+        state += "f"
+      elif keyword == "mapping" :
+        output += "11010"
+        state += "f"
+      elif keyword == "Int" :
+        output += "00110"
+        state += "f"
+      elif keyword == "float" :
+        output += "00001"
+        state += "f"
+      elif keyword == "list" :
+        output += "10001"
+        state += "f"
+      elif keyword == "run" :
+        output += "01001"
+        state += "f"
+      elif keyword == "RunIf" :
+        output += "11001"
+        state += "f"
     else :
-      if letter == "+" :
-        output += "1000000"
-      if letter == "-" :
-        output += "0100000"
-      if letter == "*" :
-        output += "1100000"
-      if letter == "/" :
-        output += "0010000"
-      if letter == "^" :
-        output += "1010000"
-      if letter == "√" :
-        output += "0110000"
-      if letter == "g" :#get
-        output += "1110000"
-      if letter == "i" :#input
-        output += "0001000"
-      if letter == "s" :# str
-        output += "1001000"
-      if letter == "m" :#multi line str
-        output += "0101000"
-      if letter == "M" :#mappig
-        output += "1101000"
-      if letter == "I" :#int
-        output += "0011000"
-      if letter == "f" :#float
-        output += "0000100"
-      if letter == "l" :#list
-        output += "1000100"
-      if letter == "r" :#run
-        output += "0100100"
-      if letter == "R" :#run if
-        output += "1100100"
-  print (output)
+      if keyword == "set" :
+        output += "100"
+      elif keyword == "output" :
+        output += "010"
+      elif keyword == "run" :
+        output += "110"
+      elif keyword == "RunIf" :
+        output += "001"
+  return output
+while True :
+  print (MyCodeToMyMachine (input ("code: ")))
     
