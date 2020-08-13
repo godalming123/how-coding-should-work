@@ -14,8 +14,8 @@ def MyCodeToMyMachine (code) :
       output += "000000"
       keyword = ""
       keywords = 0
-    #elif state[1] == "f" :
-    #    output += "{10000:b}".format(ord (letter))
+    elif state[1] == "f" :
+        output += "{10000:b}".format(ord (letter))
     elif keywords != 0 :#if we have had keywords passed in
       if keyword == "+" :
         output += "10000"
@@ -75,6 +75,10 @@ def MyCodeToMyMachine (code) :
       elif keyword == "RunIf" :
         output += "001"
   return output
+def MyCodeToBinaryFile (FileToConvert) :
+  with open (FileToConvert, "r") as filecontents :
+    with open ("output.exe", "w") as file2write :
+      file2write.write (MyCodeToMyMachine (filecontents))
 while True :
   print (MyCodeToMyMachine (input ("code: ")))
     
