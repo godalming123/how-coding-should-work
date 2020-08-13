@@ -4,8 +4,7 @@ def MyCodeToMyMachine (code) :
   keywords = 0
   state = [0]#this is the state say if we inside a function the state would be [f]
   for letter in list (code) :
-    keyword += letter
-    if keywords != 0 :#if we have had keywords passed in
+    if letter == ";" :
       if keyword == "+" :
         output += "10000"
         state += "f"
@@ -54,26 +53,31 @@ def MyCodeToMyMachine (code) :
       elif keyword == "RunIf" :
         output += "11001"
         state += "f"
-    if letter == ";" :
       output += "00000"
+    
     elif letter == " " :
       keyword = ""
       keywords += 1#there has been a keyword passed in so we add one to the keywords var
+    
     elif letter == "n" :#n means to create a new line witch is 00000 in my code
       output += "000000"
       keyword = ""
       keywords = 0
+    
     elif state[0] == "f" :
-        output += "{10000:b}".format(ord (letter))
+      output += "{10000:b}".format(ord (letter))
+    
     else :
-      if keyword == "set" :
-        output += "100"
-      elif keyword == "output" :
-        output += "010"
-      elif keyword == "run" :
-        output += "110"
-      elif keyword == "RunIf" :
-        output += "001"
+      keyword += letter
+      if keywords == 0 :
+        if keyword == "set" :
+          output += "100"
+        elif keyword == "output" :
+          output += "010"
+        elif keyword == "run" :
+          output += "110"
+        elif keyword == "RunIf" :
+          output += "001"
   return output
 def MyCodeToBinaryFile (FileToConvert) :
   with open (FileToConvert, "r") as filecontents :
@@ -81,4 +85,3 @@ def MyCodeToBinaryFile (FileToConvert) :
       file2write.write (MyCodeToMyMachine (filecontents))
 while True :
   print (MyCodeToMyMachine (input ("code: ")))
-    
