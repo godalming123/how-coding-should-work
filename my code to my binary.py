@@ -18,9 +18,13 @@ def MyCodeToMyMachine (code) :
             keyword = ""
       
       elif not starting :
+        if InFunction != [] :#if we are parsing params into a function
+          #output +=
+          pass
         for FuncOn, func in enumerate (funcs) :
-          if keyword == func :
+           if keyword == func :
             output += str (FuncOn + 1)
+            InFunction.append (func)
     
     elif letter == "\n" :
       starting = True
@@ -34,7 +38,7 @@ def MyCodeToMyMachine (code) :
 
 def MyCodeToBinaryFile (FileToConvert) :
   with open (FileToConvert, "r").read () as filecontents :
-    file2write.write (MyCodeToMyMachine (filecontents))
+    return MyCodeToMyMachine ()
 
 while True :
   print (MyCodeToMyMachine (input ("code: ")))
