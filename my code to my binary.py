@@ -8,11 +8,9 @@ def MyCodeToMyMachine (code) :
   starting = True
   InFunction = []#this is the state say if we inside a function numberd 10 the state would be [10]
   inComment = False
-  
+
   for letter in list (code) :
     #letters not to be in the keyword
-    
-
     if letter == "/" :
       inComment = (inComment == False)
 
