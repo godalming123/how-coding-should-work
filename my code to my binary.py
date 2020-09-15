@@ -7,9 +7,13 @@ def MyCodeToMyMachine (code) :
   keyword = ""
   starting = True
   InFunction = []#this is the state say if we inside a function numberd 10 the state would be [10]
+  inComment = False
   for letter in list (code) :
     #letters not to be in the keywotd
-    if letter == " " :
+    if letter == "/" :
+      inComment = (inComment == False)
+    
+    elif letter == " " :
       if starting :
         starting = False
         for StartFuncOn, StartFunc in enumerate (StartFuncs) :
