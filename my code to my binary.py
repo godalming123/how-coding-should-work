@@ -9,10 +9,15 @@ def MyCodeToMyMachine (code) :
   InFunction = []#this is the state say if we inside a function numberd 10 the state would be [10]
   inComment = False
   for letter in list (code) :
-    #letters not to be in the keywotd
+    #letters not to be in the keyword
+    
+
     if letter == "/" :
       inComment = (inComment == False)
-    
+
+    elif inComment :#stop other elifs or elses from running when in a comment
+      pass
+
     elif letter == " " :
       if starting :
         starting = False
@@ -33,7 +38,7 @@ def MyCodeToMyMachine (code) :
     elif letter == "\n" :
       starting = True
       output += "0"
-    
+
     else :
       #letters to be in the keyword to be checked
       
