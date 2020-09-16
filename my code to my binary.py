@@ -2,13 +2,7 @@ StartFuncs = ["set", "output", "run", "RunIf"]
 funcs = ["+", "-", "*", "/", "^", "SquareRoot", "input", "get", "run", "RunIf"]
 VarTypes = ["str", "mapping", "int", "float", "list"]
 
-def MyCodeToMyMachine (code) :
-  output = ""
-  keyword = ""
-  starting = True
-  InFunction = []#this is the state say if we inside a function numberd 10 the state would be [10]
-  inComment = False
-
+def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunction = [], inComment = False) :
   for letter in list (code) :
     #letters not to be in the keyword
     if letter == "/" :
