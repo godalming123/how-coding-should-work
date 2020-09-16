@@ -26,7 +26,7 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
         for FuncOn, func in enumerate (funcs) :
            if keyword == func :
             output += str (FuncOn + 1)
-            InFunction.append (func)
+            InFunction.append (FuncOn)
     
     elif letter == "\n" :
       starting = True
