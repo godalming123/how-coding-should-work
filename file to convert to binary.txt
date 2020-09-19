@@ -1,4 +1,13 @@
 #file to convert to binary
 #code
+
+#test multi-line functions
+
+output
+ get
+
+#test passing parameters into functions
+
 set 1, string thing to output
 output get 1#1 repesents the line in memory to get
+
