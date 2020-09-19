@@ -12,7 +12,8 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
       inHashComment = True
 
     elif inComment or inHashComment :#stop other elifs or elses from running when in a comment
-      pass
+      if inHashComment and letter == "\n":
+         inHashComment = False
 
     elif letter == " " :
       if starting :
@@ -33,7 +34,6 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
     
     elif letter == "\n" :
       starting = True
-      inHashComment = False
       output += "0"
 
     else :
