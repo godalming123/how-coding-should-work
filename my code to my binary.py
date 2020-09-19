@@ -43,7 +43,7 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
   return output
 
 def MyCodeToBinaryFile (FileToConvert) :
-  with open (FileToConvert, "r").read () as filecontents :
-    return MyCodeToMyMachine (filecontents)
+  with open (FileToConvert, "r") as filecontents :
+    return MyCodeToMyMachine (filecontents.read ())
 
 print (MyCodeToBinaryFile("file to convert to binary.txt"))
