@@ -2,13 +2,16 @@ StartFuncs = ["set", "output", "run", "RunIf"]
 funcs = ["+", "-", "*", "/", "^", "SquareRoot", "input", "get", "run", "RunIf"]
 VarTypes = ["str", "mapping", "int", "float", "list"]
 
-def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunction = [], inComment = False) :
+def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunction = [], inComment = False, inHashComment = False) :
   for letter in list (code) :
     #letters not to be in the keyword
     if letter == "/" :
       inComment = (inComment == False)
 
-    elif inComment :#stop other elifs or elses from running when in a comment
+    elif letter == "#" :
+      inHashComment = True
+
+    elif inComment or inHashComment :#stop other elifs or elses from running when in a comment
       pass
 
     elif letter == " " :
@@ -30,6 +33,7 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
     
     elif letter == "\n" :
       starting = True
+      inHashComment = False
       output += "0"
 
     else :
@@ -40,7 +44,6 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
 
 def MyCodeToBinaryFile (FileToConvert) :
   with open (FileToConvert, "r").read () as filecontents :
-    return MyCodeToMyMachine ()
+    return MyCodeToMyMachine (filecontents)
 
-while True :
-  print (MyCodeToMyMachine (input ("code: ")))
+print (MyCodeToBinaryFile("file to convert to binary.txt"))
