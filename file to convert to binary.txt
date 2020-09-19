@@ -1,2 +1,3 @@
 #file to convert to binary
 #code
+output get
