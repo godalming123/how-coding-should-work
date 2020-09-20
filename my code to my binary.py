@@ -5,7 +5,7 @@ VarTypes = ["str", "mapping", "int", "float", "list"]
 def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunction = [], inComment = False, inHashComment = False) :
   for letterOn, letter in enumerate (list (code)) :
     #letters not to be in the keyword
-    if letter == "/" :
+    if letter == "\" :
       inComment = (inComment == False)
 
     elif letter == "#" :
