@@ -33,8 +33,9 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
             InFunction.append (FuncOn)
     
     elif letter == "\n" :
-      starting = True
-      output += "0"
+        if not starting:
+            starting = True
+            output += "0"
 
     else :
       #letters to be in the keyword to be checked

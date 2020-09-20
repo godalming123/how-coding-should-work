@@ -1,10 +1,10 @@
 #file to convert to binary
 #code
-
+\comment\#test comenting
 #test multi-line functions
 
 output
- get
+  get
 
 #test passing parameters into functions
 
