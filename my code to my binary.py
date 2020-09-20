@@ -16,7 +16,7 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
         inHashComment = False
     
     elif letter == " " :
-      if starting :
+      if starting and keyword != "":
         starting = False
         for StartFuncOn, StartFunc in enumerate (StartFuncs) :
           if keyword ==  StartFunc:
