@@ -13,7 +13,7 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
 
     elif inComment or inHashComment :#stop other elifs or elses from running when in a comment
       if inHashComment and letter == "\n":
-         inHashComment = False
+        inHashComment = False
     
     elif letter == " " :
       if starting :
@@ -28,14 +28,14 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
           #output +=
           pass
         for FuncOn, func in enumerate (funcs) :
-           if keyword == func :
+          if keyword == func :
             output += str (FuncOn + 1)
             InFunction.append (FuncOn)
     
     elif letter == "\n" :
-        if not starting:
-            starting = True
-            output += "0"
+      if not starting:
+        starting = True
+        output += "0"
 
     else :
       #letters to be in the keyword to be checked
