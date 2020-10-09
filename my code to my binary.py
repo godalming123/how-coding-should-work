@@ -2,8 +2,34 @@ StartFuncs = ["set", "output", "run", "RunIf"]
 funcs = ["+", "-", "*", "/", "^", "SquareRoot", "input", "get", "run", "RunIf"]
 VarTypes = ["str", "mapping", "int", "float", "list"]
 
-def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunction = [], inComment = False, inHashComment = False) :
-  for letterOn, letter in enumerate (list (code)) :
+def MyCodeToMyMachine (code,
+                       output = "", keyword = "",
+                       hasntRanCommand = True,
+                       InFunction = [],
+                       inComment = False,
+                       inHashComment = False,
+                       charOn = 1,
+                       lineOn = 1,
+                       showDebug = True
+                       ) :
+  for letter in list (code) :
+    def letterIs (string) :
+      return (letter == string)
+
+    #def addToOutput (input) :
+    #  if showDebug:
+    #    output += "ln: " + lineOn + "char: " + charOn + " "
+    #
+    #  output += input
+
+    #debug features
+    if showDebug :
+      charOn += 1
+
+      if letterIs("\n") :
+        lineOn += 1
+        charOn = 1
+
     #letters not to be in the keyword
     if letter == "\\" :
       inComment = (inComment == False)
@@ -16,27 +42,31 @@ def MyCodeToMyMachine (code, output = "", keyword = "", starting = True, InFunct
         inHashComment = False
     
     elif letter == " " :
-      if starting and keyword != "":
-        starting = False
-        for StartFuncOn, StartFunc in enumerate (StartFuncs) :
-          if keyword ==  StartFunc:
-            output += str (StartFuncOn + 1)
-            keyword = ""
+      if hasntRanCommand:
+        hasntRanCommand = False
+        if keyword != "":
+          for StartFuncOn, StartFunc in enumerate (StartFuncs) :
+            if keyword ==  StartFunc:
+              output += str (StartFuncOn + 1)
+              keyword = ""
+
+            #else:
+            #  print ("")
       
-      elif not starting :
+      elif not hasntRanCommand :
         if InFunction != [] :#if we are parsing params into a function
-          #output +=
+          #output += 
           pass
         for FuncOn, func in enumerate (funcs) :
           if keyword == func :
-            output += str (FuncOn + 1)
+            output +=  str (FuncOn + 1)
             InFunction.append (FuncOn)
     
     elif letter == "\n" :
-      if not starting:
-        starting = True
+      if not hasntRanCommand:
         output += "0"
-
+      hasntRanCommand = True
+      
     else :
       #letters to be in the keyword to be checked
       
