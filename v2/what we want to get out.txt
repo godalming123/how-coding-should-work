@@ -1,0 +1,7 @@
+str: my object
+[func
+	[nestedFunc
+		"this is a parameter
+		1#this refers to the 1st var]
+	[2ndNestdFunc
+		param]]
