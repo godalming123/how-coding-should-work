@@ -18,7 +18,8 @@ def returnList (code) :
       starting = True
 
     else :
-      element[len(element)] += letter# target the last element in elemnt and add the letter to it
+      element[len(element) - 1] += letter# target the last element in elemnt and add the letter to it
+    return output
 
-with open ("code to convert.txt", "r").read () as text :
-  print (returnList (text))
+with open ("v2\code to convert.txt", "r") as text :
+  print (returnList (text.read()))
