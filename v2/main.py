@@ -7,7 +7,7 @@ def deleteLastElementOfListAndGetItsValue (list, depth):
 def reconstructList (gotten):
   original = []
   for i in range(gotten) :
-    
+    pass
 
 
 def returnList (code) :
