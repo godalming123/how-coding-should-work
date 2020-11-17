@@ -1,4 +1,4 @@
-"my object
+"my string
 func
 	nestedFunc
 		"this is a parameter
