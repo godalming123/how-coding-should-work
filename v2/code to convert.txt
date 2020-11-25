@@ -1,7 +1,7 @@
-"my string
-func
-	nestedFunc
-		"this is a parameter
-		1#this refers to the 1st var
-	2ndNestdFunc
-		param
+list item
+	other list item
+		list item in list item
+		other list item inside
+	final list item	
+another list item
+	list item in list item

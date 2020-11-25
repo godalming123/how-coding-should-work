@@ -1,63 +1,44 @@
-def deleteLastElementOfListAndGetItsValue (list, depth):
-  gottens = [list]
-  for i in range(depth):
-    gottens += gottens[-1][-1:].pop()
-  return gottens
+def getListAtDepthAndAppend (depth, list_, itemToAppend) :
+  theItemWeAddTo = "[-1]" * (depth - 1)
+  theItemWeGet = theItemWeAddTo + "[-1]"
 
-def reconstructList (gotten):
-  original = []
-  for i in range(gotten) :
-    pass
+  if type (eval ("list_%s" %theItemWeGet)) is list:
+    eval ("list_%s.append ('%s')" %(theItemWeGet, itemToAppend))#we can append to list
+  else:
+    eval ("list_%s.append (['%s'])" %(theItemWeAddTo, itemToAppend))
 
+  return list_
+
+def appendBlankList (depth, list_) :
+	thePlaceWeAppend = "[-1]" *depth
+	eval("list_%s.append([])" %thePlaceWeAppend)
+	return list_
 
 def returnList (code) :
-  output = {
-    "object definitions" : [],
-    "stuff to run" : []
-  }
-  elementBeingAppended = []
-  entered = False
-  tabs = 0
-  depthOfAppending = []
-  state = "run stuff"
-  keyword = ""
+	output = [[]]
+	tabs = 1
+	text = ""
 
-  for letter in list (code):
-    if letter == ";" :#letter to end tree element
-      depthOfAppending -= 1
+	for letter in list (code):
+		if letter == "\t" :#tab
+			if text != "" :#tab and text defined
+				output = getListAtDepthAndAppend (tabs, output, text)
+				tabs = 1
+				text = ""
+			else :#tab
+				tabs += 1
 
-    elif letter == "=" :#we are defining a variable
-      state = "definig var"
+		else :
+			if letter != "\n" :
+				text += letter
+			elif letter == "\n" :
+				if text == "" :#newline and blank line prveiosly
+					output = appendBlankList (tabs - 1, output)
+	
+	if text != "" :#we have text that hasnt been appended
+		output = getListAtDepthAndAppend (tabs, output, text)
+	
+	return output
 
-    elif letter == "\n" :
-      if state == "definig var":
-        output["object definitions"] += keyword
-
-      elif state == "run stuff" :
-        output["stuff to run"] += elementBeingAppended
-        elementBeingAppended = []
-
-      state == "run stuff"#reset state for newline
-
-    elif letter == " " :#new item in element
-      if state == "run stuff":#this means we are creating a list to run
-        elementBeingAppended += keyword
-
-
-    else :
-      keyword += letter
-      #output[elementOn] += letter
-
-  return output
-
-def convertStringIntoList (string = "") :
-  actualString = string[::-1]
-  tabs = 0
-  for letter in list (actualString):
-    if letter == "\tab" :
-      tabs += 1
-
-with open ("v2\code to convert.txt", "r") as text :
+with open ("v2/code to convert.txt", "r") as text :
   print (returnList (text.read()))
-
-#print (reternLastList_(["hi", "my list"]))
