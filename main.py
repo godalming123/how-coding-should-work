@@ -40,5 +40,5 @@ def returnList (code) :
 	
 	return output
 
-with open ("v2/code to convert.txt", "r") as text :
+with open ("v2/code to convert.arrh", "r") as text :
   print (returnList (text.read()))
