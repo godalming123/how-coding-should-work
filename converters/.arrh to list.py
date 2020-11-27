@@ -14,6 +14,10 @@ def appendBlankList (depth, list_) :
 	eval("list_%s.append([])" %thePlaceWeAppend)
 	return list_
 
+def convertFileToList (fileLoc) :
+	with open (fileLoc, "r") as text :
+		return returnList (text.read())
+
 def returnList (code) :
 	output = [[]]
 	tabs = 1
@@ -40,5 +44,4 @@ def returnList (code) :
 	
 	return output
 
-with open ("code to convert.arrh", "r") as text :
-  print (returnList (text.read()))
+	print (convertFileToList ("code to convert.arrh"))
