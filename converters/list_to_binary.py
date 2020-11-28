@@ -13,11 +13,11 @@ def listToBinary (list_) :
 
 	for function in list_ :
 		if function[1] == ":" :
-			output[defined] += function[2]
+			output["defined"] += function[2]
 		else :
 			output["execs"] += function
 	
 	return output
 
 if __name__ == '__main__':
-	convertFileTobinary ("my code.arr")
+	print (convertFileTobinary ("my code.arr"))
