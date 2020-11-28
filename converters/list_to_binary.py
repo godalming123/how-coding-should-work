@@ -11,7 +11,7 @@ def listToBinary (list_) :
 		"execs" : []
 	}
 
-	for function in range (list_) :
+	for function in list_ :
 		if function[1] == ":" :
 			output[defined] += function[2]
 		else :
