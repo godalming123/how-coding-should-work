@@ -1,2 +1,3 @@
 :	"this is a string object"	
-:	"another variable"
+:	"another variable"	
+this is a function
