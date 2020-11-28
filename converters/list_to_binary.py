@@ -12,10 +12,10 @@ def listToBinary (list_) :
 	}
 
 	for function in list_ :
-		if function[1] == ":" :
-			output["defined"] += function[2]
+		if function[0] == ":" :
+			output["defined"].append (function[1])
 		else :
-			output["execs"] += function
+			output["execs"].append (function)
 	
 	return output
 
