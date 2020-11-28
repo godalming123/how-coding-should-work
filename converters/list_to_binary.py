@@ -1,4 +1,4 @@
-import .arrh_to_list as converter
+import arrh_to_list as converter
 
 def convertFileTobinary (fileLoc) :
 	return listToBinary (
