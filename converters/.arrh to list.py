@@ -44,4 +44,5 @@ def returnList (code) :
 	
 	return output
 
+if __name__ == '__main__':
 	print (convertFileToList ("code to convert.arrh"))
