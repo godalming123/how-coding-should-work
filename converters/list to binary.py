@@ -1,6 +1,9 @@
 import ".arrh to list.py" as converter
 
-list_ = converter.convertFileToList (input ())
+def convertFileTobinary (fileLoc) :
+	return listToBinary (
+		converter.convertFileToList (fileLoc)
+	)
 
 def listToBinary (list_) :
 	output = {
@@ -10,12 +13,11 @@ def listToBinary (list_) :
 
 	for function in range (list_) :
 		if function[1] == ":" :
-			definangVar = True
-			defined += function[2]
+			output[defined] += function[2]
 		else :
 			output["execs"] += function
-
-		if definangVar :
-			pass
 	
 	return output
+
+if __name__ == '__main__':
+	convertFileTobinary ("my code.arr")
