@@ -11,6 +11,7 @@ def listToBinary (list_) :
 	for function in range (list_) :
 		if function[1] == ":" :
 			definangVar = True
+			defined += function[2]
 		else :
 			output["execs"] += function
 
