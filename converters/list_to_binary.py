@@ -1,8 +1,5 @@
 import arrh_to_list as converter
-
-deafualtVariables = [
-
-]
+import json
 
 def convertFileTobinary (fileLoc) :
 	return listToBinary (
@@ -14,14 +11,19 @@ def listToBinary (list_) :
 		"defined" : [],
 		"execs" : []
 	}
-	userDeffinedVars = []
+	vars_ = json.load (open ("converters\objects.json"))
 
 	for function in list_ :
 		if function[0] == ":" :# object is var definition
-			userDeffinedVars.append (function[1])
+			vars_["unidentified"].append (function[1])
 			output["defined"].append (function[2])
+		
 		else :# object is execution
-			output["execs"].append (function)
+			for index, deafualtFunction in enumerate (vars_["function"]) :
+				if function[0] == deafualtFunction :
+					output["execs"].append ([index, function[slice(1, len(function))]])
+				else :
+					output["execs"].append ("ERROR: could not find function %s in ram" %str (function))
 	
 	return output
 
