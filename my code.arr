@@ -1,3 +1,3 @@
-:	"this is a string object"	
-:	"another variable"	
+:	aStrig	"this is a string object"	
+:	string	"another variable"	
 this is a function

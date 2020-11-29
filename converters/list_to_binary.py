@@ -18,7 +18,8 @@ def listToBinary (list_) :
 
 	for function in list_ :
 		if function[0] == ":" :# object is var definition
-			output["defined"].append (function[1])
+			userDeffinedVars.append (function[1])
+			output["defined"].append (function[2])
 		else :# object is execution
 			output["execs"].append (function)
 	
