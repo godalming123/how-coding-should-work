@@ -1,0 +1,18 @@
+{
+	"function" : [],
+	
+	"string" : {
+		"string" : [],
+		"multiline string" : [],
+		"charecter" : []
+	},
+
+	"number" : {
+		"integar" : [],
+		"float" : [],
+		"percent" : []
+	},
+
+	"bool" : [],
+	"key + val " : []
+}
