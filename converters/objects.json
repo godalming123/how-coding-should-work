@@ -1,7 +1,7 @@
 {
-	"function" : [
-		"test function"
-	],
+	"function" : {
+		"test function" : []
+	},
 	
 	"string" : {
 		"string" : [],
@@ -13,6 +13,12 @@
 		"integar" : [],
 		"float" : [],
 		"percent" : []
+	},
+
+	"class" : {
+		"test class" : {
+			
+		}
 	},
 
 	"bool" : [],
