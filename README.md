@@ -1,5 +1,4 @@
 # how-coding-should-work
-My vision as to how coding should work in the future.
 ## contents
 [Wondering about .arrh or .arr](#wondering-about-.arrh-or-.arr )
 ## wondering about .arrh or .arr  
