@@ -1,28 +1,30 @@
-def getListAtDepthAndAppend (depth, list_, itemToAppend) :
-  theItemWeAddTo = "[-1]" * (depth - 1)
-  theItemWeGet = theItemWeAddTo + "[-1]"
+def convertFileToList (fileLoc) :
+	return returnList (
+		open (
+			fileLoc
+		).read ()
+	)
 
-  if type (eval ("list_%s" %theItemWeGet)) is list:
-    eval ("list_%s.append ('%s')" %(theItemWeGet, itemToAppend))#we can append to list
-  else:
-    eval ("list_%s.append (['%s'])" %(theItemWeAddTo, itemToAppend))
+ def getListAtDepthAndAppend (depth, list_, itemToAppend) :
+	theItemWeAddTo = "[-1]" * (depth - 1)
+	theItemWeGet = theItemWeAddTo + "[-1]"
 
-  return list_
+	if type (eval ("list_%s" %theItemWeGet)) is list:
+		eval ("list_%s.append ('%s')" %(theItemWeGet, itemToAppend))#we can append to list
+	else:
+		eval ("list_%s.append (['%s'])" %(theItemWeAddTo, itemToAppend))
+
+	return list_
 
 def appendBlankList (depth, list_) :
 	thePlaceWeAppend = "[-1]" *depth
 	eval("list_%s.append([])" %thePlaceWeAppend)
 	return list_
-
-def convertFileToList (fileLoc) :
-	with open (fileLoc, "r") as text :
-		return returnList (text.read())
-
-def returnList (code) :
 	output = [[]]
 	tabs = 1
 	text = ""
 
+def returnList (code) :
 	for letter in list (code):
 		if letter == "\t" :#tab
 			if text != "" :#tab and text defined
@@ -43,6 +45,3 @@ def returnList (code) :
 		output = getListAtDepthAndAppend (tabs, output, text)
 	
 	return output
-
-if __name__ == '__main__' :
-	print (convertFileToList ("code to convert.arrh"))

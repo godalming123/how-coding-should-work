@@ -1,10 +1,11 @@
-import arrh_to_list as converter
-import json
+import textToList
 
 def convertFileTobinary (fileLoc) :
 	return listToBinary (
-		converter.convertFileToList (fileLoc)
+		textToList.convertFileToList (fileLoc)
 	)
+	
+
 
 def listToBinary (list_) :
 	output = {
@@ -26,6 +27,3 @@ def listToBinary (list_) :
 					output["execs"].append ("ERROR: could not find function %s in ram" %str (function))
 	
 	return output
-
-if __name__ == '__main__':
-	print (convertFileTobinary ("my code.arr"))
