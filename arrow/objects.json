@@ -1,27 +1,27 @@
 {
-	"function" : {
+	"function : a_list_exec" : {
 		"test function" : []
 	},
 	
 	"string" : {
-		"string" : [],
-		"multiline string" : [],
-		"charecter" : []
+		"charecter : a_ch" : {},
+		"string : [charecter]" : {},
+		"multiline_string : [string]" : {}
 	},
 
 	"number" : {
-		"integar" : [],
-		"float" : [],
-		"percent" : []
+		"integar : a_int" : {},
+		"float : a_int.b_int" : {},
+		"percent : a_flo/100" : {}
 	},
 
-	"class" : {
+	"class : a_list_fun" : {
 		"test class" : {
 			
 		}
 	},
 
-	"bool" : [],
-	"key + val " : [],
-	"unidentified" : []
+	"bool : true or false" : {},
+	"key + val : string var" : {},
+	"unidentified any" : {}
 }

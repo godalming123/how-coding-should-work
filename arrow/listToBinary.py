@@ -1,3 +1,4 @@
+import json
 import textToList
 
 def convertFileTobinary (fileLoc) :
@@ -5,14 +6,12 @@ def convertFileTobinary (fileLoc) :
 		textToList.convertFileToList (fileLoc)
 	)
 	
-
-
 def listToBinary (list_) :
 	output = {
 		"defined" : [],
 		"execs" : []
 	}
-	vars_ = json.load (open ("converters\objects.json"))
+	vars_ = json.load (open ("/objects.json"))
 
 	for function in list_ :
 		if function[0] == ":" :# object is var definition

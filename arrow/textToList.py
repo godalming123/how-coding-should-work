@@ -5,7 +5,7 @@ def convertFileToList (fileLoc) :
 		).read ()
 	)
 
- def getListAtDepthAndAppend (depth, list_, itemToAppend) :
+def getListAtDepthAndAppend (depth, list_, itemToAppend) :
 	theItemWeAddTo = "[-1]" * (depth - 1)
 	theItemWeGet = theItemWeAddTo + "[-1]"
 
