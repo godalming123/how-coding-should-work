@@ -1,3 +1,3 @@
 import arrow
 
-arrow.convertFileToList("list.arrh")
+print (arrow.fileTo(".json", "list.arrh"))

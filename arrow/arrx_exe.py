@@ -1,0 +1,2 @@
+def arrxToExe(code) :
+	pass

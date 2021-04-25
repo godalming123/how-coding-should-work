@@ -23,5 +23,5 @@
 
 	"bool : true or false" : {},
 	"key + val : string var" : {},
-	"unidentified any" : {}
+	"unidentified" : {}
 }

@@ -1,13 +1,29 @@
-from myCodingLangFor_x86 import *
-from listToBinary import *
-from textToList import *
+import json
 
-def convertFile(path, function) :
-	return function(open(path, "r").read())
+from arrow import arrx_exe
+from arrow import arrh_json
+from arrow import json_arrx
 
-if __name__ == '__main__':
-	print (
-		convertFile ("../how-coding-should-work\list.arrh", listToBinary),#list to binary
-		convertFile ("../code.arr", returnList)#text to list
-	)
-	
+def fileTo(type_, path) :
+	fileEnding = path.split(".")[-1]
+	outputFileName = path + type_
+
+	functionOptions = {
+		".arrh" : {#arrow heirachy format
+			".json" : lambda x: json.dumps(textToList(x))
+		},
+		".arrx" : {#arrow executable
+			".exe" : arrxToExe
+		},
+		".arr" : {#arrow codeing language
+			".exe" : lambda x: arrxToExe (
+				listToBinary(textToList(x))
+			),
+			".arrx" : lambda x: listToBinary(textToList(x))#arrow executable
+		}
+	}
+
+	with open(path, "r") as fileContents :
+		open (outputFileName, "w").write (
+			functionOptions[fileEnding][type_](fileContents)
+		)

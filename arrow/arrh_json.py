@@ -1,10 +1,3 @@
-def convertFileToList (fileLoc) :
-	return returnList (
-		open (
-			fileLoc
-		).read ()
-	)
-
 def getListAtDepthAndAppend (depth, list_, itemToAppend) :
 	theItemWeAddTo = "[-1]" * (depth - 1)
 	theItemWeGet = theItemWeAddTo + "[-1]"
@@ -24,7 +17,7 @@ def appendBlankList (depth, list_) :
 	tabs = 1
 	text = ""
 
-def returnList (code) :
+def textToList (code) :
 	for letter in list (code):
 		if letter == "\t" :#tab
 			if text != "" :#tab and text defined
